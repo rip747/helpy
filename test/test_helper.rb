@@ -1,3 +1,9 @@
+#require 'codeclimate-test-reporter'
+#CodeClimate::TestReporter.start
+ENV['RAILS_ENV'] ||= 'test'
+require File.expand_path('../../config/environment', __FILE__)
+require 'rails/test_help'
+
 # Simplecov to give a report of the test coverage on local development environment
 require 'simplecov'
 SimpleCov.start 'rails'
@@ -10,25 +16,34 @@ require 'capybara/minitest'
 require 'capybara/email'
 require 'webdrivers'
 
-require 'minitest/retry'
-Minitest::Retry.use!
+#require 'minitest/retry'
+#Minitest::Retry.use!
+
+# Need in order to get integration tests passing.
+# By default Capybara now uses Puma as the server, which is not compatible with some integration tests
+Capybara.server = :webrick
 
 class ActionDispatch::IntegrationTest
+  # Make the Capybara DSL available in all integration tests
   include Capybara::DSL
+  # Make `assert_*` methods behave like Minitest assertions
   include Capybara::Minitest::Assertions
-  Capybara.server = :webrick
 
+  # Reset sessions and driver between tests
   def teardown
     Capybara.reset_sessions!
     Capybara.use_default_driver
   end
 end
 
-#require 'codeclimate-test-reporter'
-#CodeClimate::TestReporter.start
-ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
-require 'rails/test_help'
+# https://github.com/thoughtbot/shoulda-matchers?tab=readme-ov-file#rails-apps-1
+# Needed for shoulda-matchers 3.1 to work with minitest
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :minitest
+    with.library :rails
+  end
+end
 
 # Requiring this library causes your jobs to run everything inline. So a call to the following
 # will actually be SYNCHRONOUS
@@ -63,13 +78,15 @@ def uploaded_file_object(klass, attribute, file, content_type = 'image/png')
 
   filename = File.basename(file.path)
   klass_label = klass.to_s.underscore
-
-  ActionDispatch::Http::UploadedFile.new(
-    tempfile: file,
-    filename: filename,
-    head: %Q{Content-Disposition: form-data; name="#{klass_label}[#{attribute}]"; filename="#{filename}"},
-    content_type: content_type
-  )
+  
+  # https://stackoverflow.com/questions/50324715/error-no-implicit-conversion-of-hash-into-string-on-using-racktestuploadedf
+  Rack::Test::UploadedFile.new(file, filename)
+  # Rack::Test::UploadedFile.new(
+  #   tempfile: file,
+  #   filename: filename,
+  #   head: %Q{Content-Disposition: form-data; name="#{klass_label}[#{attribute}]"; filename="#{filename}"},
+  #   content_type: content_type
+  # )
 end
 
 def set_default_settings

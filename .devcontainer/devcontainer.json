@@ -1,7 +1,7 @@
 // For format details, see https://containers.dev/implementors/json_reference/.
 // For config options, see the README at: https://github.com/devcontainers/templates/tree/main/src/ruby
 {
-	"name": "helpy",
+	"name": "helpy_rails5",
 	"dockerComposeFile": "compose.yaml",
 	"service": "rails-app",
 	"workspaceFolder": "/workspaces/${localWorkspaceFolderBasename}",
@@ -32,6 +32,13 @@
   
   
 	// Use 'postCreateCommand' to run commands after the container is created.
-	"postCreateCommand": "bin/setup --skip-server"
+	"postCreateCommand": "bin/setup --skip-server",
+	"customizations": {
+		"vscode": {
+			"extensions": [
+				"eamodio.gitlens"
+			]
+		}
+	}
   }
   
