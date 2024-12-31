@@ -10,8 +10,13 @@ Dir.chdir APP_ROOT do
 
   puts "== Installing dependencies =="
   #system "gem install bundler --conservative"
+  # Update rubygems to resolve the following error when upgrading to rails5
+  # ffi-1.17.1-x86_64-linux-musl requires rubygems version >= 3.3.22, which is incompatible with the current version, 3.0.3.1
+  system "gem update --system 3.3.22"
+  # Update bundler to the version used to build the gemfile
   system "gem install bundler:1.17.3 --conservative"
-  system "bundle check || bundle install"
+  #system "bundle check || bundle install"
+  system "bundle install"
 
   # puts "\n== Copying sample files =="
   # unless File.exist?("config/database.yml")
