@@ -13,6 +13,10 @@ gem 'uglifier', '>= 1.3.0'
 # Need to include for rails 5
 gem 'ffi', '~> 1.17', '>= 1.17.1'
 gem 'rdoc', '< 6.3'
+# Getting the following error when running test
+# NoMethodError: undefined method `new' for BigDecimal:Class
+# https://stackoverflow.com/a/60491254/16682649
+gem 'bigdecimal', '1.3.5'
 
 # Explicitly include Nokogiri to control version
 gem 'nokogiri', '~> 1.10', '>= 1.10.10'
@@ -197,9 +201,10 @@ group :test do
   gem 'minitest'
   gem 'minitest-reporters'
   gem 'minitest-retry'
-  gem 'shoulda', '3.5' # Required for minitest
-  gem 'shoulda-matchers', '~> 2.0'  # Required for minitest
-  gem 'factory_bot_rails'
+  gem 'shoulda', '~> 4.0' # Required for minitest
+  gem 'shoulda-matchers', '~> 4.5'  # Required for minitest
+  gem 'factory_bot', '< 6.3'
+  gem 'factory_bot_rails', '< 6.4'
   gem 'webdrivers', '< 5'
   gem 'capybara-email', '< 3'
   gem 'selenium-webdriver', '< 4.0'
