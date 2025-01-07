@@ -32,7 +32,7 @@ class Admin::ForumsControllerTest < ActionController::TestCase
   end
 
   test "a browsing user should not get edit" do
-    get :edit, { id: 3, locale: "en" }
+    get :edit, params: { id: 3, locale: "en" }
     assert_redirected_to new_user_session_path
   end
 
@@ -42,12 +42,12 @@ class Admin::ForumsControllerTest < ActionController::TestCase
   end
 
   test "a browsing user should not get update" do
-    patch :update, { id: 3, forum: {name: "some name", description: "some descrpition"}, locale: "en" }
+    patch :update, params: { id: 3, forum: {name: "some name", description: "some descrpition"}, locale: "en" }
     assert_redirected_to new_user_session_path
   end
 
   test "a browsing user should not get destroy" do
-    delete :destroy, { id: 3, locale: "en" }
+    delete :destroy, params: { id: 3, locale: "en" }
     assert_redirected_to new_user_session_path
   end
 
@@ -61,7 +61,7 @@ class Admin::ForumsControllerTest < ActionController::TestCase
 
     test "a #{unauthorized} should not get edit" do
       sign_in users(unauthorized.to_sym)
-      get :edit, { id: 3, locale: "en" }
+      get :edit, params: { id: 3, locale: "en" }
       assert_redirected_to admin_root_path
     end
 
@@ -73,13 +73,13 @@ class Admin::ForumsControllerTest < ActionController::TestCase
 
     test "a #{unauthorized} should not get update" do
       sign_in users(unauthorized.to_sym)
-      patch :update, { id: 3, forum: {name: "some name", description: "some descrpition"}, locale: "en" }
+      patch :update, params: { id: 3, forum: {name: "some name", description: "some descrpition"}, locale: "en" }
       assert_redirected_to admin_root_path
     end
 
     test "a #{unauthorized} should not get destroy" do
       sign_in users(unauthorized.to_sym)
-      delete :destroy, { id: 3, locale: "en" }
+      delete :destroy, params: { id: 3, locale: "en" }
       assert_redirected_to admin_root_path
     end
   end
@@ -106,7 +106,7 @@ class Admin::ForumsControllerTest < ActionController::TestCase
 
     test "an #{admin} should get update" do
       sign_in users(admin.to_sym)
-      patch :update, { id: 3, forum: {name: "some name", description: "some descrpition"}, locale: "en" }
+      patch :update, params: { id: 3, forum: {name: "some name", description: "some descrpition"}, locale: "en" }
       assert_redirected_to admin_forums_path
     end
 

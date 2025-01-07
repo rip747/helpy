@@ -9,7 +9,7 @@ class RegistrationsControllerTest < ActionController::TestCase
 
   test "a logged in user should be able to edit their user profile" do
     sign_in users(:user)
-    get :edit, locale: "en"
+    get :edit, params: { locale: "en" }
 
     assert_response :success
   end
@@ -18,7 +18,7 @@ class RegistrationsControllerTest < ActionController::TestCase
     @user = users(:user)
     sign_in @user
     assert_difference "User.find(9).name.length", -3 do
-      patch :update, { id: @user.id,
+      patch :update, params: { id: @user.id,
         user: {
           name: "something",
           current_password: "12345678",
@@ -42,7 +42,7 @@ class RegistrationsControllerTest < ActionController::TestCase
     sign_in @user
 
     assert_difference "User.find(9).name.length", -3 do
-      patch :update, {
+      patch :update, params: {
         id: @user.id,
         user: {
           name: "something",
@@ -61,7 +61,7 @@ class RegistrationsControllerTest < ActionController::TestCase
     @user = users(:oauth_user)
     sign_in @user
     assert_difference "User.find(4).name.length", -3 do
-      patch :update, { id: @user.id, user: {name: "something"}, locale: "en" }
+      patch :update, params: { id: @user.id, user: {name: "something"}, locale: "en" }
       assert User.find(4).name == "something", "name does not update"
     end
     assert_redirected_to root_path
@@ -70,7 +70,7 @@ class RegistrationsControllerTest < ActionController::TestCase
   test "a signed in user should NOT be able to change their admin or active status" do
     sign_in users(:user)
 
-    patch :update, { id: 9, user: {role: 'admin', current_password: "12345678"}, locale: "en" }
+    patch :update, params: { id: 9, user: {role: 'admin', current_password: "12345678"}, locale: "en" }
     assert users(:user).is_admin? == false
 
     assert_redirected_to root_path

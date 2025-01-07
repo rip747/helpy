@@ -45,14 +45,14 @@ class Admin::TagsControllerTest < ActionController::TestCase
     sign_in users(:admin)
     tag = create(:acts_as_taggable_on_tag)
     assert_difference "ActsAsTaggableOn::Tag.count", -1 do
-      delete :destroy, { id: tag.id, locale: "en" }
+      delete :destroy, params: { id: tag.id, locale: "en" }
     end
   end
 
   test "an admin should be able to update tag" do
     sign_in users(:admin)
     tag = create(:acts_as_taggable_on_tag)
-    put :update, { id: tag.id, acts_as_taggable_on_tag: {name: 'change'}}
+    put :update, params: { id: tag.id, acts_as_taggable_on_tag: {name: 'change'}}
     tag.reload
     assert_equal tag.name, 'change'
   end

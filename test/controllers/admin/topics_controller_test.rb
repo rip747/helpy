@@ -51,7 +51,7 @@ class Admin::TopicsControllerTest < ActionController::TestCase
     test "an #{admin} should be able to see a list of topics via standard request" do
       sign_in users(admin.to_sym)
 
-      get :index, { status: "open" }
+      get :index, params: { status: "open" }
       assert_not_nil assigns(:topics)
       assert_template "admin/topics/index"
       assert_response :success
@@ -67,7 +67,7 @@ class Admin::TopicsControllerTest < ActionController::TestCase
       topic.team_list = "test"
       topic.save!
 
-      get :index, { status: "open", team: 'test' }
+      get :index, params: { status: "open", team: 'test' }
       assert_not_nil assigns(:topics)
       assert_equal 1, assigns(:topics).size
       assert_template "admin/topics/index"
@@ -86,7 +86,7 @@ class Admin::TopicsControllerTest < ActionController::TestCase
     test "an #{admin} should be able to see a specific topic of each type via standard request" do
       sign_in users(admin.to_sym)
       [3,7].each do |topic_id|
-        get :show, { id: topic_id }
+        get :show, params: { id: topic_id }
         assert_not_nil assigns(:topic)
         assert_template "admin/topics/show"
         assert_response :success
@@ -426,7 +426,7 @@ class Admin::TopicsControllerTest < ActionController::TestCase
     topic.team_list = "test"
     topic.save!
 
-    get :index, { status: "open" }
+    get :index, params: { status: "open" }
     assert_not_nil assigns(:topics)
     assert_equal 1, assigns(:topics).size
     assert_template "admin/topics/index"
@@ -445,7 +445,7 @@ class Admin::TopicsControllerTest < ActionController::TestCase
     topic.current_status = "open"
     topic.team_list = "aomething else"
     topic.save!
-    get :index, { status: "open" }
+    get :index, params: { status: "open" }
     assert_equal 0, assigns(:topics).size
     assert_template "admin/topics/index"
     assert_response :success
@@ -464,7 +464,7 @@ class Admin::TopicsControllerTest < ActionController::TestCase
     topic.team_list = "aomething else"
     topic.save!
 
-    get :show, { id: topic.id }
+    get :show, params: { id: topic.id }
     assert_template "admin/topics/show"
     assert_response 403
   end
@@ -474,7 +474,7 @@ class Admin::TopicsControllerTest < ActionController::TestCase
     test "an #{unauthorized} should NOT be able to see a list of topics via standard request" do
       sign_in users(unauthorized.to_sym)
 
-      get :index, { status: "open" }
+      get :index, params: { status: "open" }
       assert_nil assigns(:topics)
       assert_response :redirect
     end
@@ -482,7 +482,7 @@ class Admin::TopicsControllerTest < ActionController::TestCase
     test "an #{unauthorized} should NOT be able to see a specific topic of each type via standard request" do
       sign_in users(unauthorized.to_sym)
       [3,7].each do |topic_id|
-        get :show, { id: topic_id }
+        get :show, params: { id: topic_id }
         assert_nil assigns(:topic)
         assert_response :redirect
       end

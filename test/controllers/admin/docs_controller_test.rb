@@ -39,7 +39,7 @@ class Admin::DocsControllerTest < ActionController::TestCase
   end
 
   test "a browsing user should not be able to load edit" do
-    get :edit, { id: 3, locale: "en" }
+    get :edit, params: { id: 3, locale: "en" }
     assert_redirected_to new_user_session_path
   end
 
@@ -49,12 +49,12 @@ class Admin::DocsControllerTest < ActionController::TestCase
   end
 
   test "a browsing user should not be able to load update" do
-    patch :update, { id: 1, doc: { title: "some name", body: "some body text", category_id: 1}, locale: "en" }
+    patch :update, params: { id: 1, doc: { title: "some name", body: "some body text", category_id: 1}, locale: "en" }
     assert_redirected_to new_user_session_path
   end
 
   test "a browsing user should not be able to load destroy" do
-    delete :destroy, { id: 3, locale: "en" }
+    delete :destroy, params: { id: 3, locale: "en" }
     assert_redirected_to new_user_session_path
   end
 
@@ -68,7 +68,7 @@ class Admin::DocsControllerTest < ActionController::TestCase
 
   test "a signed in user should not be able to load edit" do
     sign_in users(:user)
-    get :edit, { id: 3, locale: "en"}
+    get :edit, params: { id: 3, locale: "en"}
     assert_redirected_to admin_root_path
   end
 
@@ -82,14 +82,14 @@ class Admin::DocsControllerTest < ActionController::TestCase
 
   test "a signed in user should not be able to load update" do
     sign_in users(:user)
-    patch :update, { id: 1, doc: {title: "some name", body: "some body text", category_id: 1}, locale: "en" }
+    patch :update, params: { id: 1, doc: {title: "some name", body: "some body text", category_id: 1}, locale: "en" }
     assert_redirected_to admin_root_path
   end
 
   test "a signed in user should not be able to load destroy" do
     sign_in users(:user)
     assert_difference "Doc.count", 0 do
-      delete :destroy, { id: 3, locale: "en" }
+      delete :destroy, params: { id: 3, locale: "en" }
     end
     assert_redirected_to admin_root_path
   end
@@ -144,20 +144,20 @@ class Admin::DocsControllerTest < ActionController::TestCase
 
     test "an #{admin} should be able to update an article" do
       sign_in users(admin.to_sym)
-      patch :update, { id: 1, doc: { title: "some name", body: "some body text", category_id: 1 }, locale: "en" }
+      patch :update, params: { id: 1, doc: { title: "some name", body: "some body text", category_id: 1 }, locale: "en" }
       assert_redirected_to admin_category_path(Doc.find(1).category.id)
     end
 
     test "an #{admin} should be able to create a new translation via the update page" do
       sign_in users(admin.to_sym)
-      patch :update, { id: 1, doc: { title: "En Francais", body: "Ceci est la version française", category_id: 1 }, locale: "en", lang: :fr }
+      patch :update, params: { id: 1, doc: { title: "En Francais", body: "Ceci est la version française", category_id: 1 }, locale: "en", lang: :fr }
       assert_equal Doc.find(1).translations.count, 2
       assert_redirected_to admin_category_path(Doc.find(1).category.id)
     end
 
     # TODO: Need to move this test to Integration, because it crosses from admin into front-end views
     # test "an #{admin} should be able to create a new translation and then view it" do
-    #   patch :update, { id: 1, doc: { title: "En Francais", body: "Ceci est la version française", category_id: 1 }, locale: "en", lang: :fr }
+    #   patch :update, params: { id: 1, doc: { title: "En Francais", body: "Ceci est la version française", category_id: 1 }, locale: "en", lang: :fr }
     #
     #   get :show, id: 1, locale: "fr"
     #   assert_select "h1", "En Francais"

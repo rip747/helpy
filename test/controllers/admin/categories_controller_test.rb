@@ -33,7 +33,7 @@ class Admin::CategoriesControllerTest < ActionController::TestCase
   end
 
   test "a browsing user should not be able to load edit" do
-    get :edit, { id: 1, locale: "en" }
+    get :edit, params: { id: 1, locale: "en" }
     assert_redirected_to new_user_session_path
   end
 
@@ -43,12 +43,12 @@ class Admin::CategoriesControllerTest < ActionController::TestCase
   end
 
   test "a browsing user should not be able to load update" do
-    patch :update, { id: 1, category: { name: "some name" }, locale: "en" }
+    patch :update, params: { id: 1, category: { name: "some name" }, locale: "en" }
     assert_redirected_to new_user_session_path
   end
 
   test "a browsing user should not be able to load destroy" do
-    delete :destroy, { id: 1, locale: "en" }
+    delete :destroy, params: { id: 1, locale: "en" }
     assert_redirected_to new_user_session_path
   end
 
@@ -62,7 +62,7 @@ class Admin::CategoriesControllerTest < ActionController::TestCase
 
   test "a signed in user should not be able to load edit" do
     sign_in users(:user)
-    get :edit, { id: 1, locale: "en" }
+    get :edit, params: { id: 1, locale: "en" }
     assert_redirected_to admin_root_path
   end
 
@@ -74,13 +74,13 @@ class Admin::CategoriesControllerTest < ActionController::TestCase
 
   test "a signed in user should not be able to load update" do
     sign_in users(:user)
-    patch :update, { id: 1, category: { name: "some name" }, locale: "en" }
+    patch :update, params: { id: 1, category: { name: "some name" }, locale: "en" }
     assert_redirected_to admin_root_path
   end
 
   test "a signed in user should not be able to load destroy" do
     sign_in users(:user)
-    delete :destroy, { id: 1, locale: "en"}
+    delete :destroy, params: { id: 1, locale: "en"}
     assert_redirected_to admin_root_path
   end
 
@@ -155,20 +155,20 @@ class Admin::CategoriesControllerTest < ActionController::TestCase
 
     test "an #{admin} should be able to update an existing category" do
       sign_in users(admin.to_sym)
-      patch :update, { id: 1, category: {name: "some name" }, locale: "en" }
+      patch :update, params: { id: 1, category: {name: "some name" }, locale: "en" }
       assert_redirected_to admin_categories_path
     end
 
     test "an #{admin} attempting to update a category with invalid params re-renders the edit template" do
       sign_in users(admin.to_sym)
-      patch :update, { id: 1, category: {name: nil }, locale: "en" }
+      patch :update, params: { id: 1, category: {name: nil }, locale: "en" }
       assert_template :edit
     end
 
     test "an #{admin} should be able to add a new translation to an existing category" do
       sign_in users(admin.to_sym)
       assert_difference "Category.find(1).translations.count", 1 do
-        patch :update, { id: 1, category: {name: "some name" }, locale: "fr", lang: "fr" }
+        patch :update, params: { id: 1, category: {name: "some name" }, locale: "fr", lang: "fr" }
       end
     end
 
