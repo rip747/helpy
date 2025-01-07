@@ -9,7 +9,7 @@ class OnboardingControllerTest < ActionController::TestCase
 
   # Admin tests
   test "a new admin should be able to view the onboarding process" do
-    get :index, locale: :en
+    get :index, locale: "en"
     assert_response :success
   end
 

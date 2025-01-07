@@ -72,7 +72,8 @@ gem 'omniauth-facebook'
 # i18n gems
 gem 'rails-i18n', '~> 5.0'
 gem 'i18n-country-translations'
-gem 'route_translator', '< 6'
+#gem 'route_translator', '< 6'
+gem 'route_translator', '~> 10.0'
 gem 'http_accept_language'
 
 # API gems
