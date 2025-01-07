@@ -32,6 +32,14 @@ class ActionDispatch::IntegrationTest
   end
 end
 
+# https://github.com/thoughtbot/shoulda-matchers?tab=readme-ov-file#rails-apps-1
+Shoulda::Matchers.configure do |config|
+  config.integrate do |with|
+    with.test_framework :minitest
+    with.library :rails
+  end
+end
+
 # Requiring this library causes your jobs to run everything inline. So a call to the following
 # will actually be SYNCHRONOUS
 require 'sucker_punch/testing/inline'
