@@ -1,3 +1,9 @@
+#require 'codeclimate-test-reporter'
+#CodeClimate::TestReporter.start
+ENV['RAILS_ENV'] ||= 'test'
+require File.expand_path('../../config/environment', __FILE__)
+require 'rails/test_help'
+
 # Simplecov to give a report of the test coverage on local development environment
 require 'simplecov'
 SimpleCov.start 'rails'
@@ -25,12 +31,6 @@ class ActionDispatch::IntegrationTest
     Capybara.use_default_driver
   end
 end
-
-#require 'codeclimate-test-reporter'
-#CodeClimate::TestReporter.start
-ENV['RAILS_ENV'] ||= 'test'
-require File.expand_path('../../config/environment', __FILE__)
-require 'rails/test_help'
 
 # Requiring this library causes your jobs to run everything inline. So a call to the following
 # will actually be SYNCHRONOUS
