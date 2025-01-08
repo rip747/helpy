@@ -78,15 +78,14 @@ class Doc < ApplicationRecord
     "#{id}-#{title.parameterize}"
   end
 
-  # FIXME - Need to figure out why this is throwing errors
-  # ArgumentError (wrong number of arguments (given 2, expected 1))
-  # def read_translated_attribute(name)
-  #   if globalize.stash.contains?(Globalize.locale, name)
-  #     globalize.stash.read(Globalize.locale, name)
-  #   else
-  #     translation_for(Globalize.locale).send(name)
-  #   end
-  # end
+
+  def read_translated_attribute(name)
+    if globalize.stash.contains?(Globalize.locale, name)
+      globalize.stash.read(Globalize.locale, name)
+    else
+      translation_for(Globalize.locale).send(name)
+    end
+  end
 
   def content
     c = RDiscount.new(self.body)

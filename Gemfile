@@ -93,7 +93,7 @@ gem 'acts-as-taggable-on', '~> 8.1'
 gem 'kaminari'
 gem 'kaminari-i18n'
 
-gem 'globalize', '< 7'
+gem 'globalize', '<= 5.1.0'
 gem 'globalize-versioning', '<= 0.4'
 gem 'globalize-accessors'
 
