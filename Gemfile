@@ -219,6 +219,8 @@ group :test do
 
   # remove this for Rails 5 because the function is already included
   #gem 'test_after_commit'
+  # assigns has been extracted to a gem.
+  gem 'rails-controller-testing'
 end
 
 group :production do
