@@ -16,8 +16,8 @@ require 'capybara/minitest'
 require 'capybara/email'
 require 'webdrivers'
 
-require 'minitest/retry'
-Minitest::Retry.use!
+#require 'minitest/retry'
+#Minitest::Retry.use!
 
 class ActionDispatch::IntegrationTest
   # Make the Capybara DSL available in all integration tests
