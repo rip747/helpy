@@ -33,17 +33,17 @@ class DocsControllerTest < ActionController::TestCase
   end
 
   test "a browsing user should be able to show a document" do
-    get :show, id: 1, locale: "en"
+    get :show, params: { id: 1, locale: "en" }
     assert_response :success
   end
 
   test "a browsing user should be able to show a document with comments" do
-    get :show, id: 6, locale: "en"
+    get :show, params: { id: 6, locale: "en" }
     assert_response :success
   end
 
   test "a browsing user should NOT be able to see a document from common replies" do
-    get :show, id: 8, locale: "en"
+    get :show, params: { id: 8, locale: "en" }
     assert_response :redirect
   end
 
@@ -54,7 +54,7 @@ class DocsControllerTest < ActionController::TestCase
     AppSettings['cloudinary.api_key'] = "some-key"
     AppSettings['cloudinary.api_secret'] = "test-cloud"
 
-    get :show, id: 6, locale: "en"
+    get :show, params: { id: 6, locale: "en" }
     assert_response :success
   end
 

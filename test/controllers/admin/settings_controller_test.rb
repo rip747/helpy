@@ -123,7 +123,7 @@ class Admin::SettingsControllerTest < ActionController::TestCase
 
     # TODO: Refactor this into an integration test
     # assert_no_difference 'ActionMailer::Base.deliveries.size' do
-    #   xhr :post, create_admin_topic_path, topic: { user: { name: 'a user', email: 'anon@test.com' }, name: 'some new private topic', post: { body: 'this is the body' }, forum_id: 1 }
+    #   post, create_admin_topic_path, topic: { user: { name: 'a user', email: 'anon@test.com' }, name: 'some new private topic', post: { body: 'this is the body' }, forum_id: 1 }
     # end
   end
 

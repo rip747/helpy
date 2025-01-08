@@ -17,19 +17,19 @@ class Admin::TagsControllerTest < ActionController::TestCase
 
   test "a signed out user should not be able to load the tag page" do
     sign_in users(:user)
-    get :index, locale: "en"
+    get :index, params: { locale: "en" }
     assert_redirected_to admin_root_path
   end
 
   test "a signed in user should not be able to load the tag page" do
     sign_in users(:user)
-    get :index, locale: "en"
+    get :index, params: { locale: "en" }
     assert_redirected_to admin_root_path
   end
 
   test "an admin should be able to load the tag page" do
     sign_in users(:admin)
-    get :index, locale: "en"
+    get :index, params: { locale: "en" }
     assert_response :success
   end
 
@@ -37,7 +37,7 @@ class Admin::TagsControllerTest < ActionController::TestCase
     sign_in users(:admin)
     params = { acts_as_taggable_on_tag: {name: "test_tag" }}
     assert_difference "ActsAsTaggableOn::Tag.count", 1 do
-      post :create, params
+      post :create, params: params
     end
   end
 

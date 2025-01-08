@@ -73,7 +73,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
   test "an admin should be able to destroy a user" do
     sign_in users(:admin)
     assert_difference "User.count", -1 do
-      xhr :delete, :destroy, id: 3, locale: "en"
+      delete :destroy, params: { id: 3, locale: "en" }
     end
     assert_response :success
   end
@@ -83,7 +83,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
 
     user_name = User.find(3).name
 
-    delete :destroy, id: 3, locale: "en"
+    delete :destroy, params: { id: 3, locale: "en" }
     assert_response :redirect
     assert_equal "User #{user_name} was scheduled for permanent deletion.",
       flash[:success]
@@ -92,7 +92,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
 
   test "an admin should be able to anonymize a user" do
     sign_in users(:admin)
-    xhr :post, :scrub, id: 3, locale: "en"
+    post :scrub, params: { id: 3, locale: "en" }
     assert_response :success
     assert "Anonymous User", User.find(3).name
   end
@@ -206,7 +206,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
 
     test "an #{admin} should be able to see a user profile" do
       sign_in users(admin.to_sym)
-      xhr :get, :show, { id: 9 }, format: 'js'
+      get :show, params: { id: 9 }, format: 'js'
       assert_response :success
       # assert_equal(6, assigns(:topics).count)
     end
@@ -214,7 +214,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
     test "an #{admin} should be able to edit a user profile" do
       sign_in users(admin.to_sym)
 
-      xhr :get, :edit, { id: 9 }
+      get :edit, params: { id: 9 }
       assert_response :success
     end
 
@@ -224,13 +224,13 @@ class Admin::UsersControllerTest < ActionController::TestCase
     test "an #{unauthorized} should NOT be able to destroy a user" do
       sign_in users(unauthorized.to_sym)
       assert_difference("User.count", 0) do
-        xhr :delete, :destroy, id: 3, locale: "en"
+        delete :destroy, params: { id: 3, locale: "en" }
       end
     end
 
     test "an #{unauthorized} should NOT be able to anonymize a user" do
       sign_in users(unauthorized.to_sym)
-      xhr :post, :scrub, id: 3, locale: "en"
+      post :scrub, params: { id: 3, locale: "en" }
       assert_not_equal "Anonymous User", User.find(3).name
     end
   end
@@ -257,7 +257,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
     test "an #{unauthorized} should NOT be able to update a user and change their role" do
       sign_in users(unauthorized.to_sym)
       assert_difference("User.admins.count", 0) do
-        patch :update, params: {id: 9, user: {name: "something", email:"scott.miller@test.com", role: "agent"}, locale: "en"}
+        patch :update, params: { id: 9, user: {name: "something", email:"scott.miller@test.com", role: "agent"}, locale: "en" }
       end
     end
   end
