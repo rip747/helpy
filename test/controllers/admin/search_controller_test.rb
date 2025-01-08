@@ -54,7 +54,7 @@ class Admin::SearchControllerTest < ActionController::TestCase
 
     test "an #{admin} should be able to search by user name" do
       sign_in users(admin.to_sym)
-      xhr :get, :topic_search, q: "Admin User"
+      get :topic_search, params: { q: "Admin User" }
       assert_not_nil assigns(:user)
       assert_response :success
     end
