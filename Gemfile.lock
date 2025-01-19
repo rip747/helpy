@@ -1,4 +1,12 @@
 GIT
+  remote: https://github.com/ThomasConnolly/attachinary.git
+  revision: c7bbc9d5d5ea6aee7584e381c82d0b5bea73e49b
+  specs:
+    attachinary (1.3.1)
+      cloudinary (~> 1.1)
+      rails (>= 3.2)
+
+GIT
   remote: https://github.com/rip747/helpy_imap
   revision: 2746f4c6532eadfd5b71feaa37193ba7b9524ed2
   branch: rails5
@@ -70,9 +78,6 @@ GEM
     ansi (1.5.0)
     arel (7.1.4)
     ast (2.4.2)
-    attachinary (1.3.1)
-      cloudinary (~> 1.1.0)
-      rails (>= 3.2)
     autoprefixer-rails (10.4.19.0)
       execjs (~> 2)
     awesome_print (1.9.2)
@@ -135,9 +140,9 @@ GEM
     client_side_validations-simple_form (6.10.0)
       client_side_validations (>= 9.3.2, < 15)
       simple_form (>= 3.5, < 5)
-    cloudinary (1.1.7)
+    cloudinary (1.29.0)
       aws_cf_signer
-      rest-client
+      rest-client (>= 2.0.0)
     codeclimate-test-reporter (1.0.7)
       simplecov
     codemirror-rails (5.16.0)
@@ -151,7 +156,7 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     commonjs (0.2.7)
-    concurrent-ruby (1.3.4)
+    concurrent-ruby (1.3.5)
     config (1.1.1)
       activesupport (>= 3.0)
       deep_merge (~> 1.0.1)
@@ -368,7 +373,7 @@ GEM
       celluloid (~> 0.16.0)
       rb-fsevent (>= 0.9.3)
       rb-inotify (>= 0.9)
-    logger (1.6.4)
+    logger (1.6.5)
     loofah (2.24.0)
       crass (~> 1.0.2)
       nokogiri (>= 1.12.0)
@@ -390,7 +395,7 @@ GEM
     mime-types (3.6.0)
       logger
       mime-types-data (~> 3.2015)
-    mime-types-data (3.2024.1203)
+    mime-types-data (3.2025.0107)
     mini_magick (4.13.2)
     mini_mime (1.1.5)
     mini_portile2 (2.8.8)
@@ -568,10 +573,9 @@ GEM
       nokogiri (~> 1)
       rubyzip (~> 1.1, < 2.0.0)
     rouge (3.30.0)
-    route_translator (10.0.0)
-      actionpack (>= 5.0.0.1, < 6.2)
-      activesupport (>= 5.0.0.1, < 6.2)
-      addressable (~> 2.7)
+    route_translator (5.0.0)
+      actionpack (>= 5.0.0, < 5.1)
+      activesupport (>= 5.0.0, < 5.1)
     rubocop (0.83.0)
       parallel (~> 1.10)
       parser (>= 2.7.0.1)
@@ -690,7 +694,7 @@ DEPENDENCIES
   acts-as-taggable-on (~> 8.1)
   ancestry
   annotate
-  attachinary (< 2)
+  attachinary!
   awesome_print
   best_in_place (~> 3.1)
   better_errors
@@ -792,7 +796,7 @@ DEPENDENCIES
   rdoc (< 6.3)
   recaptcha (< 3)
   roo (< 2.8)
-  route_translator (~> 10.0)
+  route_translator (= 5.0.0)
   rubocop (= 0.83.0)
   sass-rails (~> 5.0.7)
   scout_apm

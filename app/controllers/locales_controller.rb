@@ -14,7 +14,12 @@ class LocalesController < ApplicationController
   end
 
   def redirect_on_locale
-    redirect_to root_path, status: 301
+    #binding.pry
+    if root_path == "/"
+      raise "Cannot determine locale", status: 500
+    else
+      redirect_to root_path, status: 301
+    end
   end
 
 end

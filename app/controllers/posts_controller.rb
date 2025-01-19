@@ -46,6 +46,7 @@ class PostsController < ApplicationController
     @post.topic_id = @topic.id
     @post.user_id = current_user.id
     @post.screenshots = params[:post][:screenshots]
+    #binding.pry
 
     respond_to do |format|
       if @post.save
@@ -84,12 +85,16 @@ class PostsController < ApplicationController
     end
   end
 
+  private
+
   def post_params
-    params.require(:post).permit(
-      :body,
-      :kind,
-      {attachments: []}
-    )
+    #binding.pry
+    # params.require(:post).permit(
+    #   :body,
+    #   :kind,
+    #   attachments: []
+    # )
+    params.require(:post).permit!
   end
 
 end

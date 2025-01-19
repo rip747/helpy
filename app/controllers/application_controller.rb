@@ -1,7 +1,7 @@
 class ApplicationController < ActionController::Base
   # Prevent CSRF attacks by raising an exception.
   # For APIs, you may want to use :null_session instead.
-  protect_from_forgery with: :exception
+  protect_from_forgery with: :exception, prepend: true
   helper_method :recaptcha_enabled?
 
   before_action :add_root_breadcrumb
@@ -137,6 +137,7 @@ class ApplicationController < ActionController::Base
     else
       I18n.locale = @browser_locale
     end
+    params[:locale] = I18n.locale.to_s
   end
 
   def set_vars

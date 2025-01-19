@@ -73,7 +73,7 @@ gem 'omniauth-facebook'
 gem 'rails-i18n', '~> 5.0'
 gem 'i18n-country-translations'
 #gem 'route_translator', '< 6'
-gem 'route_translator', '~> 10.0'
+gem 'route_translator', '= 5.0.0'
 gem 'http_accept_language'
 
 # API gems
@@ -101,7 +101,8 @@ gem 'gravtastic'
 
 # File handling
 gem 'cloudinary', '< 2'
-gem 'attachinary', '< 2'
+#gem 'attachinary', '< 2'
+gem 'attachinary', :git => 'https://github.com/ThomasConnolly/attachinary.git'
 
 gem 'carrierwave', '< 3.0.0'
 gem 'fog-aws', '< 3.6'
