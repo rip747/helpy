@@ -61,12 +61,14 @@ class Admin::UsersControllerTest < ActionController::TestCase
     filename = File.basename(file.path)
     klass_label = klass.to_s.underscore
 
-    Rack::Test::UploadedFile.new(
-      tempfile: file,
-      filename: filename,
-      head: %Q{Content-Disposition: form-data; name="#{klass_label}[#{attribute}]"; filename="#{filename}"},
-      content_type: content_type
-    )
+    # https://stackoverflow.com/questions/50324715/error-no-implicit-conversion-of-hash-into-string-on-using-racktestuploadedf
+    Rack::Test::UploadedFile.new(file, filename)
+    # Rack::Test::UploadedFile.new(
+    #   tempfile: file,
+    #   filename: filename,
+    #   head: %Q{Content-Disposition: form-data; name="#{klass_label}[#{attribute}]"; filename="#{filename}"},
+    #   content_type: content_type
+    # )
   end
 
   # admin only
