@@ -20,7 +20,7 @@ chdir APP_ROOT do
   # ffi-1.17.1-x86_64-linux-musl requires rubygems version >= 3.3.22, which is incompatible with the current version, 3.0.3.1
   system "gem update --system 3.3.22"
   # Update bundler to the version used to build the gemfile
-  system "gem install bundler:1.17.3 --conservative"
+  system "gem install bundler:2.4.22 --conservative"
   # For some reason FFI is not getting installed through bundle. Try installing it directly
   system "gem install ffi:1.17.1"
   #system "bundle check || bundle install"
