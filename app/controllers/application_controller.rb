@@ -13,7 +13,7 @@ class ApplicationController < ActionController::Base
   force_ssl if: :ssl_configured?
 
   def url_options
-    { locale: I18n.locale, theme: params[:theme] }.merge(super)
+    { locale: I18n.locale.to_s, theme: params[:theme] }.merge(super)
   end
 
   def after_sign_in_path_for(_resource)
@@ -137,7 +137,6 @@ class ApplicationController < ActionController::Base
     else
       I18n.locale = @browser_locale
     end
-    params[:locale] = I18n.locale.to_s
   end
 
   def set_vars
