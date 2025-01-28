@@ -21,9 +21,13 @@
 class CategoriesController < ApplicationController
 
   before_action :knowledgebase_enabled?, only: ['index','show']
-
-  respond_to :html
   theme :theme_chosen
+
+  before_action :set_format
+
+  def set_format
+    request.format = 'html'
+  end
 
   def index
     # @categories = Category.publicly.active.ordered.with_translations(I18n.locale).includes(docs: :tags )

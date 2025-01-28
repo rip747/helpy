@@ -1,7 +1,11 @@
 class HomeController < ApplicationController
 
   theme :theme_chosen
-  respond_to :html
+  before_action :set_format
+
+  def set_format
+    request.format = 'html'
+  end
 
   def index
     redirect_to new_user_session_path if !tickets? && !knowledgebase?

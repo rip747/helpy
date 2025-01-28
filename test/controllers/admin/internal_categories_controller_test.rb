@@ -7,7 +7,7 @@ class Admin::InternalCategoriesControllerTest < ActionController::TestCase
   end
 
   test "listing internal categories" do
-    get :index
+    get :index, params: {}
     refute_nil assigns(:categories)
     assert_equal 5, assigns(:categories).length
     assert_response :success

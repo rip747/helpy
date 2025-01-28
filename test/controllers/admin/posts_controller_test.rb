@@ -74,7 +74,7 @@ class Admin::PostsControllerTest < ActionController::TestCase
     test "an #{admin} should be able to edit a post" do
       sign_in users(admin.to_sym)
       old = Post.find(1).body
-      patch :update, params: { id: 1, locale: "en", post: { body: "this has changed" }  }
+      patch :update, params: { id: 1, locale: "en", post: { body: "this has changed" } }
       assert old != Post.find(1).body
       assert :success
     end

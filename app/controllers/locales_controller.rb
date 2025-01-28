@@ -1,7 +1,12 @@
 class LocalesController < ApplicationController
 
-  respond_to :html
   theme :theme_chosen
+
+  before_action :set_format
+
+  def set_format
+    request.format = 'html'
+  end
 
   def select
     @page_title = t(:select_locale, default: "Change your Locale")
@@ -14,12 +19,7 @@ class LocalesController < ApplicationController
   end
 
   def redirect_on_locale
-    #binding.pry
-    if root_path == "/"
-      raise "Cannot determine locale", status: 500
-    else
-      redirect_to root_path, status: 301
-    end
+    redirect_to root_path, status: 301
   end
 
 end

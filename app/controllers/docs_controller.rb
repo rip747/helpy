@@ -31,7 +31,11 @@ class DocsController < ApplicationController
   after_action  :is_user_signed_in?
   theme :theme_chosen
 
-  respond_to :html
+  before_action :set_format
+
+  def set_format
+    request.format = 'html'
+  end
 
   def show
     define_topic_for_doc

@@ -1,7 +1,11 @@
 class Admin::PostsController < Admin::BaseController
 
   before_action :verify_agent
-  respond_to :js
+  before_action :set_format
+
+  def set_format
+    request.format = 'js'
+  end
 
   def edit
     @post = Post.where(id: params[:id]).first
@@ -69,7 +73,7 @@ class Admin::PostsController < Admin::BaseController
 
     @topic = @post.topic
     @posts = @topic.posts.chronologic
-
+#binding.pry
     if @post.update_attributes(post_params)
       update_topic_owner(old_user, @post) if @post.first?
       respond_to do |format|

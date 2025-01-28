@@ -22,9 +22,14 @@ class PostsController < ApplicationController
   # Make sure forums are enabled
   before_action :forums_enabled?, only: ['index','show']
 
-  respond_to :js, only: [:up_vote]
   layout "clean", only: :index
   theme :theme_chosen
+
+  before_action :set_format, only: [:up_vote]
+
+  def set_format
+    request.format = 'html'
+  end
 
   def index
     @topic = Topic.undeleted.ispublic.where(id: params[:topic_id]).first#.includes(:forum)
