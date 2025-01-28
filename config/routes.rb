@@ -2,7 +2,6 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   root to: "locales#redirect_on_locale"
-  #root to: "home#index"
 
   devise_for :users, skip: [:password, :registration, :confirmation, :invitations], controllers: { omniauth_callbacks: 'omniauth_callbacks' }
 
@@ -170,6 +169,7 @@ Rails.application.routes.draw do
       resources :posts
     end
     resources :posts
+
     
     get '/posts/:id/raw' => 'posts#raw', as: :post_raw
     get '/dashboard' => 'dashboard#index', as: :dashboard
