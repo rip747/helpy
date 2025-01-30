@@ -17,6 +17,7 @@ gem 'rdoc', '< 6.3'
 # NoMethodError: undefined method `new' for BigDecimal:Class
 # https://stackoverflow.com/a/60491254/16682649
 gem 'bigdecimal', '1.3.5'
+gem 'responders', '3.0.1'
 
 # Explicitly include Nokogiri to control version
 gem 'nokogiri', '~> 1.10', '>= 1.10.10'
@@ -58,11 +59,11 @@ gem "groupdate"
 gem "chartkick"
 
 # Auth Gems
-gem 'devise', '<= 5.0.0'
+gem 'devise', '4.7.3'
 gem 'devise-i18n'
 gem 'devise-bootstrap-views'
 gem 'devise_invitable'
-gem 'omniauth'
+gem 'omniauth', '1.9.1'
 gem "omniauth-rails_csrf_protection" # TODO: remove once https://github.com/omniauth/omniauth/pull/809 is resolved
 gem 'omniauth-github'
 gem 'omniauth-twitter'
@@ -73,7 +74,7 @@ gem 'omniauth-facebook'
 gem 'rails-i18n', '~> 5.0'
 gem 'i18n-country-translations'
 #gem 'route_translator', '< 6'
-gem 'route_translator', '= 5.0.0'
+gem 'route_translator', '= 10.0.0'
 gem 'http_accept_language'
 
 # API gems

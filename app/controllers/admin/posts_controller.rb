@@ -1,11 +1,7 @@
 class Admin::PostsController < Admin::BaseController
 
   before_action :verify_agent
-  before_action :set_format
-
-  def set_format
-    request.format = 'js'
-  end
+  before_action :set_format_js
 
   def edit
     @post = Post.where(id: params[:id]).first
