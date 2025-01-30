@@ -27,6 +27,12 @@ module Helpy
 
     config.to_prepare do
       Devise::Mailer.layout "mailer" # email.haml or email.erb
+
+      cache_klasses = %W(#{Rails.root}/app/**/*_decorator*.rb #{Rails.root}/app/overrides/*.rb)
+      Dir.glob(cache_klasses) do |klass|
+        Rails.configuration.cache_classes ? require(klass) : load(klass)
+      end
+
     end
 
   end

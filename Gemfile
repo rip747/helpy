@@ -18,6 +18,7 @@ gem 'rdoc', '< 6.3'
 # https://stackoverflow.com/a/60491254/16682649
 gem 'bigdecimal', '1.3.5'
 gem 'responders', '3.0.1'
+gem 'deface'
 
 # Explicitly include Nokogiri to control version
 gem 'nokogiri', '~> 1.10', '>= 1.10.10'

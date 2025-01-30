@@ -146,6 +146,11 @@ GEM
     daemons (1.4.1)
     date (3.4.1)
     deep_merge (1.0.1)
+    deface (1.5.3)
+      nokogiri (>= 1.6)
+      polyglot
+      rails (>= 4.1)
+      rainbow (>= 2.1.0)
     devise (4.7.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -453,6 +458,7 @@ GEM
     pg_search (2.3.0)
       activerecord (>= 4.2)
       activesupport (>= 4.2)
+    polyglot (0.3.5)
     premailer (1.15.0)
       addressable
       css_parser (>= 1.6.0)
@@ -694,6 +700,7 @@ DEPENDENCIES
   codemirror-rails
   config (~> 1.1.0)
   daemons
+  deface
   devise (= 4.7.3)
   devise-bootstrap-views
   devise-i18n
