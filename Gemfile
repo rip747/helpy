@@ -193,6 +193,7 @@ gem 'ancestry'
 
 group :development do
   gem "better_errors"
+  gem "binding_of_caller"
 
   # Check Eager Loading / N+1 query problems
   # gem 'bullet'
