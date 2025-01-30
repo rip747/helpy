@@ -24,12 +24,8 @@ class PostsController < ApplicationController
 
   layout "clean", only: :index
   theme :theme_chosen
-
-  before_action :set_format, only: [:up_vote]
-
-  def set_format
-    request.format = 'html'
-  end
+  respond_to :html, only: [:up_vote]
+  
 
   def index
     @topic = Topic.undeleted.ispublic.where(id: params[:topic_id]).first#.includes(:forum)
