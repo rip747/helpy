@@ -6,26 +6,6 @@ GIT
       cloudinary (~> 1.1)
       rails (>= 3.2)
 
-GIT
-  remote: https://github.com/rip747/helpy_imap
-  revision: 2746f4c6532eadfd5b71feaa37193ba7b9524ed2
-  branch: rails5
-  specs:
-    helpy_imap (1.0.1)
-      deface
-      mail
-      mailman
-      rails
-
-GIT
-  remote: https://github.com/rip747/helpy_onboarding
-  revision: 3eca67ea6289cbc913e0957903f3432970824f2f
-  branch: rails5
-  specs:
-    helpy_onboarding (2.0.1)
-      deface
-      rails
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -166,11 +146,6 @@ GEM
     daemons (1.4.1)
     date (3.4.1)
     deep_merge (1.0.1)
-    deface (1.5.3)
-      nokogiri (>= 1.6)
-      polyglot
-      rails (>= 4.1)
-      rainbow (>= 2.1.0)
     devise (4.7.3)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -478,7 +453,6 @@ GEM
     pg_search (2.3.0)
       activerecord (>= 4.2)
       activesupport (>= 4.2)
-    polyglot (0.3.5)
     premailer (1.15.0)
       addressable
       css_parser (>= 1.6.0)
@@ -750,8 +724,6 @@ DEPENDENCIES
   griddler-sparkpost
   groupdate
   hashid-rails (~> 1.0)
-  helpy_imap!
-  helpy_onboarding!
   http_accept_language
   i18n-country-translations
   inky-rb (< 1.3)

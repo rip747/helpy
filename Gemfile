@@ -168,8 +168,6 @@ gem "recaptcha", '< 3', require: "recaptcha/rails" # TODO: Update
 gem 'best_in_place', '~> 3.1'
 
 # Add onboarding component
-gem 'helpy_onboarding', git: 'https://github.com/rip747/helpy_onboarding', branch: 'rails5'
-gem 'helpy_imap', git: 'https://github.com/rip747/helpy_imap', branch: 'rails5'
 
 group :development, :test do
   # Audit Gemfile for security vulnerabilities
