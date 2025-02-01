@@ -239,14 +239,14 @@ class Admin::TopicsControllerTest < ActionController::TestCase
 
     test "an #{admin} should be able to open a new discussion for a new user" do
       sign_in users(admin.to_sym)
-      get :new
+      get :new, params: {}
       assert_response :success
     end
 
     test "an #{admin} should be able to open a new discussion with a set channel" do
       AppSettings['settings.default_channel'] = 'phone'
       sign_in users(admin.to_sym)
-      get :new
+      get :new, params: {}
       assert_equal 'phone', assigns(:topic).channel
       assert_response :success
     end
@@ -386,14 +386,14 @@ class Admin::TopicsControllerTest < ActionController::TestCase
 
     test "an #{admin} should be able to assign_team of a topic" do
       sign_in users(admin.to_sym)
-      get :assign_team, params: { topic_ids: [1], assign_team: "test"}
+      get :assign_team, params: { topic_ids: [1], assign_team: "test", format: :js }
       assert_equal ["test"], Topic.find(1).team_list
     end
 
     test "an #{admin} should be able to unassign_team of a topic" do
       Topic.find(1).team_list = "test"
       sign_in users(admin.to_sym)
-      get :unassign_team, params: { topic_ids: [1]}
+      get :unassign_team, params: { topic_ids: [1] }
       assert_equal [], Topic.find(1).team_list
     end
 

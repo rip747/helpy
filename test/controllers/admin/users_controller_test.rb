@@ -101,7 +101,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
 
   test "an admin should be able to add a new user without an invite" do
     sign_in users(:admin)
-    get :new
+    get :new, params: {}
     assert_difference 'User.count', 1 do
       assert_difference "ActionMailer::Base.deliveries.size", 0 do
         post :create, params: {
@@ -119,7 +119,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
 
   test "an admin should be able to add a new user and send an invite" do
     sign_in users(:admin)
-    get :new
+    get :new, params: {}
     assert_difference 'User.count', 1 do
       assert_difference "ActionMailer::Base.deliveries.size", 1 do
         post :create, params: {
@@ -142,7 +142,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
 
     test "an #{admin} should be able to see a listing of users" do
       sign_in users(admin.to_sym)
-      get :index
+      get :index, params: {}
       assert_equal User.all.count, assigns(:users).count
     end
 
@@ -248,9 +248,10 @@ class Admin::UsersControllerTest < ActionController::TestCase
     sign_in users(:admin)
     assert_difference "ActionMailer::Base.deliveries.size", 3 do
       assert_difference("User.count", 3) do
-        put :invite_users,
+        put :invite_users, params: {
           'invite.emails' => 'test1@mail.com, test2@mail.com, test3@mail.com',
           'invite.message' => "this is the test invitation message"
+        }
       end
     end
   end
@@ -267,7 +268,7 @@ class Admin::UsersControllerTest < ActionController::TestCase
   %w(user editor).each do |unauthorized|
     test "an #{unauthorized} should NOT be able to see the list of users" do
       sign_in users(unauthorized.to_sym)
-      get :index
+      get :index, params: {}
       assert_nil assigns(:users)
     end
   end
