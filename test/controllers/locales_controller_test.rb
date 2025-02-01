@@ -10,14 +10,14 @@ class LocalesControllerTest < ActionController::TestCase
     I18n.default_locale = :en
     I18n.available_locales = ["en"]
 
-    get :redirect_on_locale do
+    get :redirect_on_locale, params: {}  do
       assert_redirected_to(controller: "home", action: "index", locale: "en")
     end
   end
 
   test "a browsing user requesting the root domain should get redirected to the default language when multiple languages are set" do
 
-    get :redirect_on_locale do
+    get :redirect_on_locale, params: {} do
       assert_redirected_to(controller: "home", action: "index", locale: "fr")
     end
   end
@@ -25,7 +25,7 @@ class LocalesControllerTest < ActionController::TestCase
   test "a browsing user requesting the root domain should get redirected to the browser language" do
 
     @request.headers["Accept-Lanuage"] = "et"
-    get :redirect_on_locale do
+    get :redirect_on_locale, params: {} do
       assert_redirected_to(controller: "home", action: "index", locale: "et")
     end
   end

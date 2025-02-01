@@ -10,6 +10,8 @@ class ApplicationController < ActionController::Base
   before_action :configure_permitted_parameters, if: :devise_controller?
   around_action :set_time_zone, if: :current_user
 
+  around_action :set_locale_from_url
+
   force_ssl if: :ssl_configured?
 
   def url_options
@@ -137,6 +139,7 @@ class ApplicationController < ActionController::Base
     else
       I18n.locale = @browser_locale
     end
+    I18n.locale = 'en'
   end
 
   def set_vars

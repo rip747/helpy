@@ -10,7 +10,7 @@ class Admin::SettingsControllerTest < ActionController::TestCase
 
   test 'an admin should be able to load the settings' do
     sign_in users(:admin)
-    get :index
+    get :index, params: {}
     assert_response :success
   end
 
@@ -39,7 +39,7 @@ class Admin::SettingsControllerTest < ActionController::TestCase
 
     test "an #{unauthorized} should NOT be able to load the settings" do
       sign_in users(unauthorized.to_sym)
-      get :index
+      get :index, params: {}
       assert_redirected_to admin_root_path
     end
   end
@@ -188,7 +188,7 @@ class Admin::SettingsControllerTest < ActionController::TestCase
       'cloudinary.api_key' => 'something',
       'cloudinary.api_secret' => 'something'
     }
-    get :index
+    get :index, params: {}
     assert_equal 'something', Cloudinary.config.cloud_name
     assert_equal 'something', Cloudinary.config.api_key
     assert_equal 'something', Cloudinary.config.api_secret
@@ -196,7 +196,7 @@ class Admin::SettingsControllerTest < ActionController::TestCase
 
   test "an agent should be able to update their profile" do
     sign_in users(:agent)
-    get :profile
+    get :profile, params: {}
     assert :success
   end
 

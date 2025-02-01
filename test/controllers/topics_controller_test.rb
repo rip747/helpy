@@ -36,8 +36,8 @@ class TopicsControllerTest < ActionController::TestCase
   end
 
   teardown do
-    AppSettings['settings.extension_whitelist'] = ""
-    AppSettings['settings.extension_blacklist'] = ""
+    AppSettings['settings.extension_allowlist'] = ""
+    AppSettings['settings.extension_denylist'] = ""
   end
 
   test 'a browsing user should get index of topics in a public forum' do
@@ -275,7 +275,7 @@ class TopicsControllerTest < ActionController::TestCase
   # A new user who is NOT signed in should be able to create a new private or public topic and attach a file
   test 'a new user should NOT be able to create a new private topic with an invalid file' do
     #sign_in users(:user)
-    AppSettings['settings.extension_whitelist'] = "txt,doc,docx,pdf"
+    AppSettings['settings.extension_allowlist'] = "txt,doc,docx,pdf"
 
     get :new, params: { locale: "en" }
     assert_response :success

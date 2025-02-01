@@ -7,7 +7,7 @@ class Widget::TopicsControllerTest < ActionController::TestCase
   end
 
   test "a logged out user should be able to see the widget" do
-    get :new
+    get :new, params: {}
     assert_response :success
 
     assert_select "input#topic_user_email", 1
@@ -17,7 +17,7 @@ class Widget::TopicsControllerTest < ActionController::TestCase
 
   test "a signed in user should be able to see the widget" do
     sign_in users(:user)
-    get :new
+    get :new, params: {}
     assert_response :success
 
     assert_select "input#topic_user_email", 0
