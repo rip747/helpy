@@ -14,7 +14,7 @@
 class ApiKey < ApplicationRecord
   before_validation :generate_access_token, on: :create
 
-  belongs_to :user
+  belongs_to :user, optional: true
   validates :access_token, uniqueness: true
   scope :active, -> { where(date_expired: nil) }
 

@@ -32,10 +32,10 @@ class Topic < ApplicationRecord
   include SentenceCase
   include Hashid::Rails
   
-  belongs_to :forum, counter_cache: true, touch: true, :optional => true
-  belongs_to :user, counter_cache: true, touch: true, :optional => true
-  belongs_to :doc, counter_cache: true, touch: true, :optional => true
-  belongs_to :assigned_user, class_name: 'User'
+  belongs_to :forum, counter_cache: true, touch: true, optional: true
+  belongs_to :user, counter_cache: true, touch: true, optional: true
+  belongs_to :doc, counter_cache: true, touch: true, optional: true
+  belongs_to :assigned_user, class_name: 'User', optional: true
 
   has_many :posts, dependent: :delete_all
   accepts_nested_attributes_for :posts
