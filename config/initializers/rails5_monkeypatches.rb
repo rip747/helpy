@@ -10,3 +10,18 @@ module ActiveSupport
         end        
     end
 end
+
+module ActiveSupport
+    module NumberHelper
+      class RoundingHelper # :nodoc:
+        private
+        def round_significant(number)
+            return 0 if number.zero?
+            digits = digit_count(number)
+            multiplier = 10**(digits - precision)
+            (number / BigDecimal(multiplier.to_f.to_s)).round * multiplier
+        end
+      end
+    end
+end
+        
