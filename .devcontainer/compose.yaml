@@ -1,4 +1,4 @@
-name: helpy_rails5
+name: helpy_rails5_1
 
 services:
   rails-app:

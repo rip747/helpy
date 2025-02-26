@@ -32,9 +32,9 @@ class Topic < ApplicationRecord
   include SentenceCase
   include Hashid::Rails
   
-  belongs_to :forum, counter_cache: true, touch: true
-  belongs_to :user, counter_cache: true, touch: true
-  belongs_to :doc, counter_cache: true, touch: true
+  belongs_to :forum, counter_cache: true, touch: true, :optional => true
+  belongs_to :user, counter_cache: true, touch: true, :optional => true
+  belongs_to :doc, counter_cache: true, touch: true, :optional => true
   belongs_to :assigned_user, class_name: 'User'
 
   has_many :posts, dependent: :delete_all

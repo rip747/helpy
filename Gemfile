@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '< 5.1'
+gem 'rails', '~> 5.1'
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.20.0'
@@ -76,7 +76,7 @@ gem 'omniauth-facebook'
 gem 'rails-i18n', '~> 5.0'
 gem 'i18n-country-translations'
 #gem 'route_translator', '< 6'
-gem 'route_translator', '= 5.0.2'
+gem 'route_translator', '~> 5.10'
 gem 'http_accept_language'
 
 # API gems
@@ -129,7 +129,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-select-rails'
 gem 'gemoji'
 
-gem 'config', '~> 1.1.0'
+gem 'config', '~> 1.2'
 
 # Email/Mail Handling
 gem 'daemons'

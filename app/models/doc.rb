@@ -29,7 +29,7 @@ class Doc < ApplicationRecord
   include SentenceCase
 
   belongs_to :category
-  belongs_to :user
+  belongs_to :user, :optional => true
   has_many :votes, as: :voteable
   has_one :topic
   has_many :posts, through: :topic
