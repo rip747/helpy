@@ -25,3 +25,9 @@ module ActiveSupport
     end
 end
         
+# Monkey patch for acts-as-taggable-on
+# Seems like devise is causing the issue with acts-as-taggable-on
+# https://github.com/mbleigh/acts-as-taggable-on/issues/742
+ActsAsTaggableOn::Tagging.class_eval do
+    clear_validators!
+end
