@@ -57,7 +57,9 @@ class SignInFlowTest < ActionDispatch::IntegrationTest
   end
 
   test "all omniauth providers are registered" do
-    assert_equal(Devise.omniauth_providers.count, Settings['omniauth']['providers'].count)
+    c1 = Devise.omniauth_providers.count
+    c2 = Settings['omniauth']['providers'].keys.count
+    assert_equal(c1, c2, "Devise has #{c1} providers, but settings has #{c2}")
   end
 
   Devise.omniauth_providers.each do |provider|
