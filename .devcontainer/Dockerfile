@@ -3,7 +3,7 @@
 #FROM ghcr.io/rails/devcontainer/images/ruby:$RUBY_VERSION
 # you can find a specific ruby version at
 # https://hub.docker.com/_/ruby/tags
-FROM ruby:2.6.10
+FROM ruby:2.7.8
 
 #RUN curl -sL https://deb.nodesource.com/setup_16.x | bash -
 #RUN apt-get install nodejs -y

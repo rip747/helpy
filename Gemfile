@@ -18,7 +18,7 @@ gem 'rdoc', '< 6.3'
 # https://stackoverflow.com/a/60491254/16682649
 # https://github.com/ruby/bigdecimal#which-version-should-you-select
 # NOTE: BigDecimal.new and subclassing always prints warning.
-gem 'bigdecimal', '~> 1.4'
+gem 'bigdecimal', '~> 2.0'
 gem 'responders', '3.0.1'
 
 # Explicitly include Nokogiri to control version
@@ -75,13 +75,12 @@ gem 'omniauth-facebook'
 # i18n gems
 gem 'rails-i18n', '~> 5.0'
 gem 'i18n-country-translations'
-#gem 'route_translator', '< 6'
-gem 'route_translator', '~> 5.10'
+gem 'route_translator', '~> 10.0'
 gem 'http_accept_language'
 
 # API gems
 gem 'grape', '~> 1.8'
-gem 'grape-swagger', '~> 1.4'
+gem 'grape-swagger', '~> 1.6'
 gem 'grape-entity', '~> 0.10'
 gem 'grape-swagger-rails', '~> 0.3'
 gem 'grape-swagger-entity', '~> 0.5'
@@ -129,7 +128,7 @@ gem 'bootstrap-datepicker-rails'
 gem 'bootstrap-select-rails'
 gem 'gemoji'
 
-gem 'config', '~> 1.2'
+gem 'config', '~> 2.2.1'
 
 # Email/Mail Handling
 gem 'daemons'
@@ -234,4 +233,4 @@ group :production do
   gem 'puma', '< 6'
 end
 
-ruby '>= 2.2', '< 2.7'
+ruby '>= 2.2', '< 3.0'
