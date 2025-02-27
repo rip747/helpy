@@ -21,7 +21,6 @@
 
 class Category < ApplicationRecord
   attribute :name
-  attribute :body
   attribute :keywords
   attribute :title_tag
   attribute :meta_description
