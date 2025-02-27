@@ -25,6 +25,9 @@
 #
 
 class Doc < ApplicationRecord
+  attribute :title
+  attribute :body
+  attribute :keywords
 
   include SentenceCase
 
@@ -59,7 +62,7 @@ class Doc < ApplicationRecord
 
   include RankedModel
   ranks :rank
-
+  
   acts_as_taggable
   acts_as_taggable_on :tags
 
