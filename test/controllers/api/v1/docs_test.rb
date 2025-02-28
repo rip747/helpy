@@ -110,7 +110,7 @@ class API::V1::DocsTest < ActiveSupport::TestCase
     params = {
       title: Faker::Company.catch_phrase,
       category_id: Category.first.id,
-      front_page: false
+      body: Faker::Lorem.paragraph
     }
 
     patch "/api/v1/docs/#{doc.id}.json", @default_params.merge(params)
@@ -118,6 +118,6 @@ class API::V1::DocsTest < ActiveSupport::TestCase
     object = JSON.parse(last_response.body)
 
     assert_equal params[:title], object['title']
-    assert_equal params[:front_page], object['front_page']
+    assert_equal params[:body], object['body']
   end
 end
