@@ -6,6 +6,14 @@ GIT
       cloudinary (~> 1.1)
       rails (>= 3.2)
 
+GIT
+  remote: https://github.com/rip747/globalize-accessors
+  revision: 4035cc3780ab983a8077e18ce1972af6facc16ec
+  specs:
+    globalize-accessors (0.3.0)
+      activesupport (>= 4.2)
+      globalize (>= 5.0.0)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -243,12 +251,10 @@ GEM
       activemodel (>= 4.2, < 5.2)
       activerecord (>= 4.2, < 5.2)
       request_store (~> 1.0)
-    globalize-accessors (0.3.0)
-      globalize (>= 5.0.0)
-    globalize-versioning (0.4.0)
-      activemodel (>= 4.2.0, < 6.1)
-      activerecord (>= 4.2.0, < 6.1)
-      globalize (>= 5.1.0, < 6)
+    globalize-versioning (0.5.0.alpha.1)
+      activemodel (>= 4.2.0, < 7.0)
+      activerecord (>= 4.2.0, < 7.0)
+      globalize (>= 5.1.0, < 7)
       paper_trail (>= 8, < 12)
     grape (1.8.0)
       activesupport (>= 5)
@@ -733,9 +739,9 @@ DEPENDENCIES
   fog-aws (< 3.6)
   font-awesome-sass (~> 4.4.0)
   gemoji
-  globalize (<= 5.1.0)
-  globalize-accessors
-  globalize-versioning (<= 0.4)
+  globalize (~> 5.1.0)
+  globalize-accessors!
+  globalize-versioning (~> 0.4)
   grape (~> 1.8)
   grape-entity (~> 0.10)
   grape-kaminari (~> 0.4)
