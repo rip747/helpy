@@ -218,8 +218,8 @@ GEM
     fog-xml (0.1.5)
       fog-core
       nokogiri (>= 1.5.11, < 2.0.0)
-    font-awesome-sass (4.4.0)
-      sass (>= 3.2)
+    font-awesome-sass (5.15.1)
+      sassc (>= 1.11)
     formatador (1.1.0)
     foundation_emails (2.2.1.0)
     gemoji (4.1.0)
@@ -710,7 +710,7 @@ DEPENDENCIES
   faker
   ffi (~> 1.17, >= 1.17.1)
   fog-aws (< 3.6)
-  font-awesome-sass (~> 4.4.0)
+  font-awesome-sass (~> 5.15)
   gemoji
   globalize (<= 5.1.0)
   globalize-accessors
