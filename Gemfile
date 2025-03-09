@@ -113,9 +113,7 @@ gem 'mini_magick'
 
 # Bootstrap/UI Gems
 # Pin font-awesome-sass to prevent error
-# RuntimeError: Neutered Exception ActionView::Template::Error: File to import not found or unreadable: font-awesome-sprockets.
-# https://stackoverflow.com/a/33792852/31278
-gem 'font-awesome-sass', '~> 4.4.0'
+gem 'font-awesome-sass', '~> 5.15'
 gem 'bootstrap-sass'
 gem 'bootstrap_form'
 gem 'simple_form', '< 4'
