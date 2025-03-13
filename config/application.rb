@@ -11,6 +11,10 @@ module Helpy
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
+
+    # Needed to get test passing
+    # ImportJobTest#test_it_should_save_error_log_for_all_unsaved_records:
+    config.active_record.use_yaml_unsafe_load = [Time]
     
     config.assets.paths << Rails.root.join('vendor', 'assets', 'components')
     config.assets.paths << Rails.root.join("public",'uploads','logos')
