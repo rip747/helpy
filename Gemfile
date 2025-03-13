@@ -7,7 +7,7 @@ gem "bootsnap", require: false
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.20.0'
-gem 'pg_search'
+gem 'pg_search', '2.3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.7'
 # Use Uglifier as compressor for JavaScript assets
@@ -118,7 +118,7 @@ gem 'mini_magick'
 # Pin font-awesome-sass to prevent error
 gem 'font-awesome-sass', '~> 5.15'
 gem 'bootstrap-sass'
-gem 'bootstrap_form'
+gem 'bootstrap_form', '~> 4.4.0'
 gem 'simple_form'
 gem 'twitter-bootstrap-rails'
 gem 'twitter-bootstrap-rails-confirm'
