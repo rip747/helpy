@@ -98,7 +98,7 @@ gem 'acts-as-taggable-on', '~> 8.1'
 gem 'kaminari'
 gem 'kaminari-i18n'
 
-gem 'globalize', '~> 5.2.0'
+gem 'globalize', '~> 6.3'
 gem 'globalize-versioning', '~> 0.4'
 gem 'globalize-accessors', git: 'https://github.com/rip747/globalize-accessors'
 

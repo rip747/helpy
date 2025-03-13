@@ -253,9 +253,9 @@ GEM
     gemoji (4.1.0)
     globalid (1.1.0)
       activesupport (>= 5.0)
-    globalize (5.2.0)
-      activemodel (>= 4.2, < 5.3)
-      activerecord (>= 4.2, < 5.3)
+    globalize (6.3.0)
+      activemodel (>= 4.2, < 7.2)
+      activerecord (>= 4.2, < 7.2)
       request_store (~> 1.0)
     globalize-versioning (0.5.0.alpha.1)
       activemodel (>= 4.2.0, < 7.0)
@@ -749,7 +749,7 @@ DEPENDENCIES
   fog-aws (< 3.6)
   font-awesome-sass (~> 5.15)
   gemoji
-  globalize (~> 5.2.0)
+  globalize (~> 6.3)
   globalize-accessors!
   globalize-versioning (~> 0.4)
   grape (~> 1.8)
