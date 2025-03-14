@@ -65,7 +65,7 @@ class Topic < ApplicationRecord
   scope :assigned, -> { where.not(assigned_user_id: nil) }
 
   scope :chronologic, -> { order('updated_at DESC') }
-  scope :reverse, -> { order('updated_at ASC') }
+  #scope :reverse, -> { order('updated_at ASC') }
   scope :by_popularity, -> { order('points DESC') }
   scope :active, -> { where(current_status: %w(new open pending)) }
   scope :undeleted, -> { where.not(current_status: 'trash') }

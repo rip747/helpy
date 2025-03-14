@@ -81,15 +81,6 @@ class Doc < ApplicationRecord
     "#{id}-#{title.parameterize}"
   end
 
-
-  def read_translated_attribute(name)
-    if globalize.stash.contains?(Globalize.locale, name)
-      globalize.stash.read(Globalize.locale, name)
-    else
-      translation_for(Globalize.locale).send(name)
-    end
-  end
-
   def content
     c = RDiscount.new(self.body)
     c.to_html

@@ -10,7 +10,7 @@ class ResultController < ApplicationController
 
   def search
     depth = params[:depth].present? ? params[:depth] : 10
-    @results = PgSearch.multisearch(params[:query]).first(depth)
+    @results = PgSearch.multisearch(params[:query]).first(depth.to_i)
     respond_to do |format|
       format.json { render :json => serialize_autocomplete_result(@results).to_json.html_safe }
     end

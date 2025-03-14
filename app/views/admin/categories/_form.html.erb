@@ -1,10 +1,10 @@
-  <%= f.input :name, label: I18n.translate("activerecord.attributes.category.name", locale: I18n.locale), value: @category.read_translated_attribute(:name)  %>
+  <%= f.input :name, label: I18n.translate("activerecord.attributes.category.name", locale: I18n.locale), value: @category.name  %>
   <%= f.input :parent_id, collection: categories_collection %>
   <%= f.input :icon, placeholder: t(:select_icon_helptext, default: 'Select an icon to associate with this category (optional)'), label: I18n.translate("activerecord.attributes.category.icon", locale: I18n.locale), input_html: { class: 'icon-picker no-translate'} %>
   <%#= f.text_field :section %>
-  <%= f.input :keywords, label: I18n.translate("activerecord.attributes.category.keywords", locale: I18n.locale), value: @category.read_translated_attribute(:keywords) %>
-  <%= f.input :title_tag, label: I18n.translate("activerecord.attributes.category.title_tag", locale: I18n.locale), value: @category.read_translated_attribute(:title_tag) %>
-  <%= f.input :meta_description, label: I18n.translate("activerecord.attributes.category.meta_description", locale: I18n.locale), value: @category.read_translated_attribute(:meta_description) %>
+  <%= f.input :keywords, label: I18n.translate("activerecord.attributes.category.keywords", locale: I18n.locale), value: @category.keywords %>
+  <%= f.input :title_tag, label: I18n.translate("activerecord.attributes.category.title_tag", locale: I18n.locale), value: @category.title_tag %>
+  <%= f.input :meta_description, label: I18n.translate("activerecord.attributes.category.meta_description", locale: I18n.locale), value: @category.meta_description %>
   <% if params[:lang] == "#{I18n.locale}" %>
     <%= f.input :front_page, label: I18n.translate("activerecord.attributes.category.front_page", locale: I18n.locale), input_html: { class: 'no-translate'} %>
     <%= label_tag I18n.translate("activerecord.attributes.category.visibility", locale: I18n.locale), nil, class: 'form-label' %>

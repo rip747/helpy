@@ -1,10 +1,13 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.1'
+gem 'rails', '~> 5.2'
+
+# Reduces boot times through caching; required in config/boot.rb
+gem "bootsnap", require: false
 
 # Use postgresql as the database for Active Record
 gem 'pg', '~> 0.20.0'
-gem 'pg_search'
+gem 'pg_search', '2.3.0'
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0.7'
 # Use Uglifier as compressor for JavaScript assets
@@ -95,7 +98,7 @@ gem 'acts-as-taggable-on', '~> 8.1'
 gem 'kaminari'
 gem 'kaminari-i18n'
 
-gem 'globalize', '~> 5.1.0'
+gem 'globalize', '~> 6.3'
 gem 'globalize-versioning', '~> 0.4'
 gem 'globalize-accessors', git: 'https://github.com/rip747/globalize-accessors'
 
@@ -115,8 +118,8 @@ gem 'mini_magick'
 # Pin font-awesome-sass to prevent error
 gem 'font-awesome-sass', '~> 5.15'
 gem 'bootstrap-sass'
-gem 'bootstrap_form'
-gem 'simple_form', '< 4'
+gem 'bootstrap_form', '~> 4.4.0'
+gem 'simple_form'
 gem 'twitter-bootstrap-rails'
 gem 'twitter-bootstrap-rails-confirm'
 gem 'rdiscount'
