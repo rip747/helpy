@@ -1,6 +1,9 @@
 source 'https://rubygems.org'
 
-gem 'rails', '~> 5.2'
+gem 'rails', '~> 6.0.0'
+
+# https://stackoverflow.com/q/67773514/16682649
+gem "net-http"
 
 # Reduces boot times through caching; required in config/boot.rb
 gem "bootsnap", require: false
@@ -76,7 +79,7 @@ gem 'omniauth-google-oauth2'
 gem 'omniauth-facebook'
 
 # i18n gems
-gem 'rails-i18n', '~> 5.0'
+gem 'rails-i18n', '~> 6.0'
 gem 'i18n-country-translations'
 gem 'route_translator', '~> 10.0'
 gem 'http_accept_language'
@@ -107,7 +110,7 @@ gem 'gravtastic'
 # File handling
 gem 'cloudinary', '< 2'
 #gem 'attachinary', '< 2'
-gem 'attachinary', :git => 'https://github.com/ThomasConnolly/attachinary.git'
+gem 'attachinary', :git => 'https://github.com/rip747/attachinary.git'
 
 gem 'carrierwave', '< 3.0.0'
 gem 'fog-aws', '< 3.6'
@@ -164,7 +167,7 @@ gem 'faker'
 
 gem 'timecop' #used to populate
 gem "hashid-rails", "~> 1.0"
-gem 'themes_on_rails'
+gem 'themes_on_rails', :git => 'https://github.com/rip747/themes_on_rails.git'
 gem "recaptcha", '< 3', require: "recaptcha/rails" # TODO: Update
 
 gem 'best_in_place', '~> 3.1'

@@ -1,5 +1,5 @@
 GIT
-  remote: https://github.com/ThomasConnolly/attachinary.git
+  remote: https://github.com/rip747/attachinary.git
   revision: c7bbc9d5d5ea6aee7584e381c82d0b5bea73e49b
   specs:
     attachinary (1.3.1)
@@ -14,50 +14,71 @@ GIT
       activesupport (>= 4.2)
       globalize (>= 5.0.0)
 
+GIT
+  remote: https://github.com/rip747/themes_on_rails.git
+  revision: 469a0de0796a6db117e3c086c32b278f308049e3
+  specs:
+    themes_on_rails (0.4.0)
+      rails (>= 3.2)
+
 GEM
   remote: https://rubygems.org/
   specs:
-    actioncable (5.2.8.1)
-      actionpack (= 5.2.8.1)
+    actioncable (6.0.6.1)
+      actionpack (= 6.0.6.1)
       nio4r (~> 2.0)
       websocket-driver (>= 0.6.1)
-    actionmailer (5.2.8.1)
-      actionpack (= 5.2.8.1)
-      actionview (= 5.2.8.1)
-      activejob (= 5.2.8.1)
+    actionmailbox (6.0.6.1)
+      actionpack (= 6.0.6.1)
+      activejob (= 6.0.6.1)
+      activerecord (= 6.0.6.1)
+      activestorage (= 6.0.6.1)
+      activesupport (= 6.0.6.1)
+      mail (>= 2.7.1)
+    actionmailer (6.0.6.1)
+      actionpack (= 6.0.6.1)
+      actionview (= 6.0.6.1)
+      activejob (= 6.0.6.1)
       mail (~> 2.5, >= 2.5.4)
       rails-dom-testing (~> 2.0)
-    actionpack (5.2.8.1)
-      actionview (= 5.2.8.1)
-      activesupport (= 5.2.8.1)
+    actionpack (6.0.6.1)
+      actionview (= 6.0.6.1)
+      activesupport (= 6.0.6.1)
       rack (~> 2.0, >= 2.0.8)
       rack-test (>= 0.6.3)
       rails-dom-testing (~> 2.0)
-      rails-html-sanitizer (~> 1.0, >= 1.0.2)
-    actionview (5.2.8.1)
-      activesupport (= 5.2.8.1)
+      rails-html-sanitizer (~> 1.0, >= 1.2.0)
+    actiontext (6.0.6.1)
+      actionpack (= 6.0.6.1)
+      activerecord (= 6.0.6.1)
+      activestorage (= 6.0.6.1)
+      activesupport (= 6.0.6.1)
+      nokogiri (>= 1.8.5)
+    actionview (6.0.6.1)
+      activesupport (= 6.0.6.1)
       builder (~> 3.1)
       erubi (~> 1.4)
       rails-dom-testing (~> 2.0)
-      rails-html-sanitizer (~> 1.0, >= 1.0.3)
-    activejob (5.2.8.1)
-      activesupport (= 5.2.8.1)
+      rails-html-sanitizer (~> 1.1, >= 1.2.0)
+    activejob (6.0.6.1)
+      activesupport (= 6.0.6.1)
       globalid (>= 0.3.6)
-    activemodel (5.2.8.1)
-      activesupport (= 5.2.8.1)
-    activerecord (5.2.8.1)
-      activemodel (= 5.2.8.1)
-      activesupport (= 5.2.8.1)
-      arel (>= 9.0)
-    activestorage (5.2.8.1)
-      actionpack (= 5.2.8.1)
-      activerecord (= 5.2.8.1)
-      marcel (~> 1.0.0)
-    activesupport (5.2.8.1)
+    activemodel (6.0.6.1)
+      activesupport (= 6.0.6.1)
+    activerecord (6.0.6.1)
+      activemodel (= 6.0.6.1)
+      activesupport (= 6.0.6.1)
+    activestorage (6.0.6.1)
+      actionpack (= 6.0.6.1)
+      activejob (= 6.0.6.1)
+      activerecord (= 6.0.6.1)
+      marcel (~> 1.0)
+    activesupport (6.0.6.1)
       concurrent-ruby (~> 1.0, >= 1.0.2)
       i18n (>= 0.7, < 2)
       minitest (~> 5.1)
       tzinfo (~> 1.1)
+      zeitwerk (~> 2.2, >= 2.2.2)
     acts-as-taggable-on (8.1.0)
       activerecord (>= 5.0, < 6.2)
     addressable (2.8.7)
@@ -68,7 +89,6 @@ GEM
       activerecord (>= 3.2, < 8.0)
       rake (>= 10.4, < 14.0)
     ansi (1.5.0)
-    arel (9.0.0)
     ast (2.4.2)
     autoprefixer-rails (10.4.19.0)
       execjs (~> 2)
@@ -144,8 +164,7 @@ GEM
       rest-client (>= 2.0.0)
     codeclimate-test-reporter (1.0.7)
       simplecov
-    codemirror-rails (5.16.0)
-      railties (>= 3.0, < 6.0)
+    codemirror-rails (0.3.1)
     coderay (1.1.3)
     coffee-rails (5.0.0)
       coffee-script (>= 2.2.0)
@@ -280,8 +299,9 @@ GEM
     grape-swagger-entity (0.5.3)
       grape-entity (>= 0.6.0)
       grape-swagger (>= 1.2.0)
-    grape-swagger-rails (0.3.1)
-      railties (>= 3.2.12)
+    grape-swagger-rails (0.6.0)
+      ostruct
+      railties (>= 6.0.6.1)
     gravtastic (3.2.6)
     griddler (1.6.0)
       htmlentities
@@ -426,6 +446,8 @@ GEM
       ruby2_keywords (~> 0.0.1)
     mustermann-grape (1.0.2)
       mustermann (>= 1.0.0)
+    net-http (0.6.0)
+      uri
     net-imap (0.4.19)
       date
       net-protocol
@@ -480,6 +502,7 @@ GEM
       omniauth-oauth (~> 1.1)
       rack
     orm_adapter (0.5.0)
+    ostruct (0.6.1)
     paper_trail (10.3.1)
       activerecord (>= 4.2)
       request_store (~> 1.1)
@@ -518,18 +541,20 @@ GEM
       rack (>= 2.0.0)
     rack-test (2.2.0)
       rack (>= 1.3)
-    rails (5.2.8.1)
-      actioncable (= 5.2.8.1)
-      actionmailer (= 5.2.8.1)
-      actionpack (= 5.2.8.1)
-      actionview (= 5.2.8.1)
-      activejob (= 5.2.8.1)
-      activemodel (= 5.2.8.1)
-      activerecord (= 5.2.8.1)
-      activestorage (= 5.2.8.1)
-      activesupport (= 5.2.8.1)
+    rails (6.0.6.1)
+      actioncable (= 6.0.6.1)
+      actionmailbox (= 6.0.6.1)
+      actionmailer (= 6.0.6.1)
+      actionpack (= 6.0.6.1)
+      actiontext (= 6.0.6.1)
+      actionview (= 6.0.6.1)
+      activejob (= 6.0.6.1)
+      activemodel (= 6.0.6.1)
+      activerecord (= 6.0.6.1)
+      activestorage (= 6.0.6.1)
+      activesupport (= 6.0.6.1)
       bundler (>= 1.3.0)
-      railties (= 5.2.8.1)
+      railties (= 6.0.6.1)
       sprockets-rails (>= 2.0.0)
     rails-controller-testing (1.0.5)
       actionpack (>= 5.0.1.rc1)
@@ -542,20 +567,20 @@ GEM
     rails-html-sanitizer (1.6.2)
       loofah (~> 2.21)
       nokogiri (>= 1.15.7, != 1.16.7, != 1.16.6, != 1.16.5, != 1.16.4, != 1.16.3, != 1.16.2, != 1.16.1, != 1.16.0.rc1, != 1.16.0)
-    rails-i18n (5.1.3)
+    rails-i18n (6.0.0)
       i18n (>= 0.7, < 2)
-      railties (>= 5.0, < 6)
+      railties (>= 6.0.0, < 7)
     rails-settings-cached (0.4.6)
       rails (>= 4.2.0)
     rails-timeago (2.20.0)
       actionpack (>= 5.2)
       activesupport (>= 5.2)
-    railties (5.2.8.1)
-      actionpack (= 5.2.8.1)
-      activesupport (= 5.2.8.1)
+    railties (6.0.6.1)
+      actionpack (= 6.0.6.1)
+      activesupport (= 6.0.6.1)
       method_source
       rake (>= 0.8.7)
-      thor (>= 0.19.0, < 2.0)
+      thor (>= 0.20.3, < 2.0)
     rainbow (2.2.2)
       rake
     raindrops (0.20.1)
@@ -658,8 +683,6 @@ GEM
       concurrent-ruby (~> 1.0)
     summernote-rails (0.8.12.0)
       railties (>= 3.1)
-    themes_on_rails (0.4.0)
-      rails (>= 3.2)
     thor (1.3.2)
     thread_safe (0.3.6)
     tilt (2.6.0)
@@ -683,6 +706,7 @@ GEM
     unicorn (6.1.0)
       kgio (~> 2.6)
       raindrops (~> 0.7)
+    uri (1.0.3)
     version_gem (1.1.6)
     warden (1.2.9)
       rack (>= 2.0.9)
@@ -787,6 +811,7 @@ DEPENDENCIES
   minitest (= 5.10.3)
   minitest-reporters
   minitest-retry
+  net-http
   nokogiri (~> 1.10, >= 1.10.10)
   omniauth (= 1.9.1)
   omniauth-facebook
@@ -802,9 +827,9 @@ DEPENDENCIES
   pry-byebug (~> 3.9)
   puma (< 6)
   rack-cors
-  rails (~> 5.2)
+  rails (~> 6.0.0)
   rails-controller-testing
-  rails-i18n (~> 5.0)
+  rails-i18n (~> 6.0)
   rails-settings-cached (< 0.5)
   rails-timeago
   ranked-model
@@ -830,7 +855,7 @@ DEPENDENCIES
   staccato
   sucker_punch (~> 2.0)
   summernote-rails
-  themes_on_rails
+  themes_on_rails!
   timecop
   turbolinks (~> 2.5.3)
   twitter-bootstrap-rails
