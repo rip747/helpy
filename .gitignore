@@ -39,3 +39,5 @@ public/uploads
 
 /.fossa.yml
 test_results.txt
+
+node_modules
